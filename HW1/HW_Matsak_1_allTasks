@@ -1,0 +1,137 @@
+1: Напишіть скріпт всередині HTML-документу, який виводить на екран ваше імя за допомогою функції alert().
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>HW 1.1</title>        
+</head>
+<body>    
+    <script>
+        alert('Volodymyr!');
+    </script>
+</body>
+</html>
+
+
+2: Напишіть скріпт в зовнішньому файлі, який виводить в консоль ваше прізвище.
+Підключіть створений файл до HTML-документу.
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>HW 1.2</title>        
+</head>
+<body>    
+    <h1>Look in the console</h1>
+    <script src='surname.js'></script>
+</body>
+</html> 
+
+surname.js:
+console.log('Matsak');
+
+
+3:  a) оголосіть дві змінні;
+    b) запишіть у змінні будь-які значення;
+    c) виведіть на екран значення змінних;
+    d) скопіюйте значення однієї змінної в іншу;
+    e) виведіть на екран значення змінних.
+
+let variableOne, variableTwo;
+variableOne = 100;
+variableTwo = 'Just some text';
+console.log(variableOne); 
+console.log(variableTwo); 
+variableOne = variableTwo;
+console.log(variableOne); 
+console.log(variableTwo);
+
+
+4: Створіть об’єкт з 5-ма наступними властивостями: 
+“String”, “Number”, “Boolean”, “Undefined”, “Null”. 
+Значення кожної властивості повинно відповідати відповідному примітивному типу даних.
+
+let newObj = {
+   str: 'Text', 
+   num: 10,
+   bool: true,
+   undef: undefined,
+   empty: null
+};
+
+
+5. Використовуючи функцію confirm() задайте користувачу питання про досягнення ним повнолітнього віку. 
+Результат запишіть в змінну isAdult і виведіть в консоль.
+
+let isAdult = confirm('Are you adult?');
+console.log(isAdult);
+
+
+6. В зовнішньому файлі напишіть скріпт, в якому оголосіть змінні, для збереження таких даних:
+	- ваше ім’я
+	- ваше прізвище
+	- навчальна група
+	- ваш рік народження.
+Присвойте змінним відповідні значення. 
+Створіть та проініціалізуйте логічну змінну для збереження вашого сімейного стану. 
+Визначте тип кожної змінної.
+Виведіть значення змінних в консоль, відповідно до їх типу, в такому порядку: Number, Boolean, String.
+Створіть 2 довільних змінних типу Null і Undefined відповідно. Виведіть їх тип в консоль.
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>HW 1.6</title>        
+</head>
+<body>    
+    <h1>Look in the console</h1>
+    <script src='personalData.js'></script>
+</body>
+</html> 
+
+personalData.js:
+let name = 'Vova', surname = 'Matsak', studyGroup = 'TA 2020', birthYear = 1989;
+let maritalStatus = false;
+console.log(birthYear);
+console.log(maritalStatus);
+console.log(name);
+console.log(surname);
+console.log(studyGroup);
+
+let randomUndef = undefined, randomNull = null;
+console.log(typeof(randomUndef));
+console.log(typeof(randomNull));
+
+
+7. За допомогою функції prompt() напишіть скріпт, який послідовно запитує в користувача логін, емейл та пароль, 
+і виводить на екран повідомлення із введеними даними. 
+Наприклад “Dear User, your email is usermale@gmail.com, your password is qwerty”.
+
+let login = prompt('Please, enter you login:', 'Admin');
+let email = prompt('Please, enter you email:', 'email@gmail.com');
+let password = prompt('Please, enter you password:', 'Pas$w0RD');
+console.log('Hello, ' + login + '. Your email is: ' + email + ' and you password is: ' + password + '.');
+
+
+8. Напишіть скріпт, який вираховує кількість секунд в годині, в добі, в місяці, записує результати в відповідні змінні, і виводить їх значення на екран.
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>HW 1.8</title>        
+</head>
+<body>    
+    <h1>Look in the console:</h1>
+    <script>
+        const minute = 60, hour = 60, day = 24, month = 30;
+        let secondsInHour = minute * hour, secondsInDay = secondsInHour * day, secondsInMonth = secondsInDay * month;
+        console.log('seconds in an hour: '+secondsInHour);
+        console.log('seconds in a day: '+secondsInDay);
+        console.log('seconds in a month: '+secondsInMonth);
+    </script>
+</body>
+</html> 
