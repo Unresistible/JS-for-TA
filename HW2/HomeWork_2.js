@@ -50,8 +50,7 @@ console.log(superMassive);
 //need ["Rome*Lviv*Warsaw"]
 //solution 1:
 let cities = ["Rome", "Lviv", "Warsaw"]; 
-for (let i = cities.length-2; i>=0; i--)
-{
+for (let i = cities.length-2; i>=0; i--){
 	cities[i] += '*' + cities.pop();
 }
 
@@ -83,7 +82,11 @@ if ((a > 0) && (b > 0) && (c > 0)) {
 			triangleArea = ((p * (p - a) * (p - b) * (p - c))) ** 0.5;
 		console.log('Area of a triangle is: ' + triangleArea.toFixed(3));
 		//перевірка на прямокутність
-		if ((a ** 2 + b  ** 2 == c ** 2) || (b ** 2 + c  ** 2 == a ** 2) || (c ** 2 + a  ** 2 == b ** 2)) {
+		if (
+			(a ** 2 + b  ** 2 == c ** 2) || 
+			(b ** 2 + c  ** 2 == a ** 2) || 
+			(c ** 2 + a  ** 2 == b ** 2)
+		) {
 			console.log('Triangle is rectangular');
 		} else {
 			console.log('Triangle is not rectangular');
