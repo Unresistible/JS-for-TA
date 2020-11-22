@@ -80,8 +80,8 @@ console.log(showMonthName(14)); //MonthException Incorrect month number
 //task5. 
 function showUser(id) {
     try {
-        if (array.constructor !== Array) {
-            throw new Error();
+        if (Number.isInteger(id) && (id > 0)) {
+            return {id: id};
         }
         throw new Error('ID must not be negative: ' + id);
     } catch (exception) {
@@ -94,7 +94,7 @@ function showUsers(array) {
     let result = [];
     try {
         if (array.constructor !== Array) {
-            throw;
+            throw new Error();
         }
         for (let i = 0; i < array.length; i++) {
             let add = showUser(array[i]);
