@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-    <meta charset='UTF-8'>
-    <title>HW 1.1</title>        
+  <meta charset='UTF-8'>
+  <title>HW 1.1</title>    
 </head>
-<body>    
-    <script>
-        alert('Volodymyr!');
-    </script>
+<body>  
+  <script>
+    alert('Volodymyr!');
+  </script>
 </body>
 </html>
 
@@ -20,12 +20,12 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-    <meta charset='UTF-8'>
-    <title>HW 1.2</title>        
+  <meta charset='UTF-8'>
+  <title>HW 1.2</title>    
 </head>
-<body>    
-    <h1>Look in the console</h1>
-    <script src='surname.js'></script>
+<body>  
+  <h1>Look in the console</h1>
+  <script src='surname.js'></script>
 </body>
 </html> 
 
@@ -34,10 +34,10 @@ console.log('Matsak');
 
 
 3:  a) оголосіть дві змінні;
-    b) запишіть у змінні будь-які значення;
-    c) виведіть на екран значення змінних;
-    d) скопіюйте значення однієї змінної в іншу;
-    e) виведіть на екран значення змінних.
+  b) запишіть у змінні будь-які значення;
+  c) виведіть на екран значення змінних;
+  d) скопіюйте значення однієї змінної в іншу;
+  e) виведіть на екран значення змінних.
 
 let variableOne, variableTwo;
 variableOne = 100;
@@ -83,12 +83,12 @@ console.log(isAdult);
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-    <meta charset='UTF-8'>
-    <title>HW 1.6</title>        
+  <meta charset='UTF-8'>
+  <title>HW 1.6</title>    
 </head>
-<body>    
-    <h1>Look in the console</h1>
-    <script src='personalData.js'></script>
+<body>  
+  <h1>Look in the console</h1>
+  <script src='personalData.js'></script>
 </body>
 </html> 
 
@@ -121,17 +121,17 @@ console.log('Hello, ' + login + '. Your email is: ' + email + ' and you password
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-    <meta charset='UTF-8'>
-    <title>HW 1.8</title>        
+  <meta charset='UTF-8'>
+  <title>HW 1.8</title>    
 </head>
-<body>    
-    <h1>Look in the console:</h1>
-    <script>
-        const minute = 60, hour = 60, day = 24, month = 30;
-        let secondsInHour = minute * hour, secondsInDay = secondsInHour * day, secondsInMonth = secondsInDay * month;
-        console.log('seconds in an hour: '+secondsInHour);
-        console.log('seconds in a day: '+secondsInDay);
-        console.log('seconds in a month: '+secondsInMonth);
-    </script>
+<body>  
+  <h1>Look in the console:</h1>
+  <script>
+    const minute = 60, hour = 60, day = 24, month = 30;
+    let secondsInHour = minute * hour, secondsInDay = secondsInHour * day, secondsInMonth = secondsInDay * month;
+    console.log('seconds in an hour: '+secondsInHour);
+    console.log('seconds in a day: '+secondsInDay);
+    console.log('seconds in a month: '+secondsInMonth);
+  </script>
 </body>
 </html> 
