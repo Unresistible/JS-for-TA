@@ -35,10 +35,10 @@ calcRectangleArea(3,'2'); //Error: Invalid data
 function checkAge() {
   try {
      let age = prompt('Enter your age:',25);
-     if ((age == '') || (age == null) || (age[0] == ' ')) {
+     if ((age == '') || (age == null)) {
        throw new Error('The field is empty! Please enter your age');
      } 
-     if (isNaN(age)) {
+     if (isNaN(age) || (age[0] == ' ')) {
        throw new Error('Invalid data! Age should be a number');
      } 
      if (Number(age)<14) {
