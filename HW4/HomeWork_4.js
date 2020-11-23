@@ -38,7 +38,7 @@ function checkAge() {
      if ((age == '') || (age == null)) {
        throw new Error('The field is empty! Please enter your age');
      } 
-     if (isNaN(age) || (age[0] == ' ')) {
+     if ((isNaN(age)) || (age.includes(' '))) {
        throw new Error('Invalid data! Age should be a number');
      } 
      if (Number(age)<14) {
