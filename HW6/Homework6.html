@@ -1,0 +1,140 @@
+//task1
+  <body>	
+	  <div id="test">First</div>
+  </body>
+
+  <script>
+    //Scenario 1
+    document.body.childNodes[1].innerHTML = 'Last';
+    //Scenario 2
+    document.getElementById("test").innerHTML = 'Last';
+  </script>
+
+//task2
+  <body>
+    <img class="image" src="dog.jpg">
+  </body>
+
+  <script>
+    let img = document.body.getElementsByTagName('img');
+    img[0].src = 'cat.jpg';
+  </script>
+
+//task3
+<body>
+  <h2>Article header</h2>      
+  <div id="text">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+  </div>
+	<p>Another text</p>
+</body>
+
+<script>
+  let paragraph = document.body.getElementsByTagName('div')[0].querySelectorAll('p');
+  for (let i = 0; i < paragraph.length; i++) {
+    console.log('Selector text ' + i + ': ' + paragraph[i].innerText);
+  }
+</script>
+
+//task4
+<body>
+  <ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    </ul>  
+</body>
+
+    
+  <script>
+    //Scenario 1
+    let list = document.body.firstChild.nextSibling;
+    let divider = ', ';
+    alert(list.firstElementChild.innerText + divider +
+          list.lastElementChild.innerText + divider +
+          list.firstElementChild.nextElementSibling.innerText + divider +
+          list.lastElementChild.previousElementSibling.innerText + divider +
+          list.firstElementChild.nextElementSibling.nextElementSibling.innerText);
+
+    //Scenario 2
+    let list2 = document.getElementById('list').querySelectorAll('li');
+    let divid = ', ';
+    
+    alert(list2[0].innerText + divid +
+          list2[4].innerText + divid +
+          list2[1].innerText + divid +
+          list2[3].innerText + divid +
+          list2[2].innerText);
+  </script>
+
+//task5
+<body>
+  <h1>I'am a big header!!!</h1>
+  <div id="myDiv">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+    <p>Fourth paragraph</p>
+  </div>
+  <ul id="myList">
+    <li>Make</li>
+    <li>me</li>
+    <li>horizontal!</li>
+  </ul>
+  <span>Make me invisible, please!</span>
+</body>
+
+<script>
+  document.getElementsByTagName('h1')[0].style = 'background-color: lightgreen;';
+  document.getElementsByTagName('p')[0].innerHTML = '<b>' + document.getElementsByTagName('p')[0].innerHTML + '</b>';
+  document.getElementsByTagName('p')[1].style = 'color: red;';
+  document.getElementsByTagName('p')[2].innerHTML = '<u>' + document.getElementsByTagName('p')[2].innerHTML + '</u>';
+  document.getElementsByTagName('p')[3].innerHTML = '<i>' + document.getElementsByTagName('p')[3].innerHTML + '</i>';
+
+  let horizontal = document.getElementsByTagName('ul')[0].querySelectorAll('li');
+  let horText = '';
+  for (let i=0; i < horizontal.length; i++) {
+    horText += horizontal[i].innerText;
+  }
+  document.getElementsByTagName('ul')[0].innerHTML = horText;
+  
+  document.getElementsByTagName('span')[0].hidden = 'hidden;';
+</script>
+
+//task6
+6. Задано HTML-сторінку:
+<body>
+  <input type="text" id="input1" value="Text1">
+  <input type="text" id="input2" value="Text2">
+</body>
+
+<script>
+  let userInput1 = prompt('input1','manual text1');
+  let userInput2 = prompt('input2','manual text2');
+
+  document.getElementById('input1').value = userInput1;
+  document.getElementById('input2').value = userInput2;
+
+  document.getElementById('input1').value = userInput2;
+  document.getElementById('input2').value = userInput1;
+</script>
+
+//task7
+<script>
+  let body = document.createElement('body');
+  let main = document.createElement('main');
+  main.className = "mainClass check item";
+  let div = document.createElement('div');
+  div.id = 'myDiv';
+  let p = document.createElement('p');
+  p.innerHTML = 'First paragraph';
+  div.append(p);
+  main.append(div);
+  body.append(main);
+
+  document.firstChild.firstChild.after(body);
+</script>
