@@ -1,0 +1,202 @@
+//task_1
+<script>
+  let newWindow = window.open("", "new window", "width=200,height=200");
+
+  function resize () {
+    newWindow.resizeTo(500,500);
+    setTimeout(move,  2000);
+  }
+
+  function move() {
+    newWindow.moveTo(200,200);
+    setTimeout(() => { newWindow.close(); },  2000);
+  }
+
+  setTimeout(resize,  2000);
+</script>
+
+
+//task_2
+<body>
+  <p id ='text'>I learning JavaScript events!</p> 
+  <div>
+    <button type="button" onclick="changeCSS()" id="myBtn">Change style!</button>
+  </div>
+  
+<script>
+  function changeCSS() {
+    document.getElementById('text').style = 'color: orange; font-family: Comic Sans MS; font-size: 20px;';
+  }
+</script>
+</body>
+
+
+//task_3
+<body>
+  <button type="button" onclick="beBlue()" id="button1">Button1</button>
+  <button type="button" ondblclick="bePink()" id="button2">Button2</button>
+  <button type="button" onmousedown="beBrown()" onmouseup="beWhite()" id="button3">Button3</button>
+  <a href='' type="url" onmouseover ="beYellow()" onmouseout ="beWhite()" id="link">link</a>
+  
+<script>
+  
+  function beBlue() {
+    document.body.style = 'background-color: blue;';
+  }
+  function bePink() {
+    document.body.style = 'background-color: pink;';
+  }
+  function beBrown() {
+    document.body.style = 'background-color: brown;';
+  }
+  function beWhite() {
+    document.body.style = 'background-color: white;';
+  }
+  function beYellow() {
+    document.body.style = 'background-color: yellow;';
+  }
+</script>
+</body>
+ 
+
+//task_4
+<body>
+  <select id="selector">
+    <option value='value1'>value 1</option>
+    <option value='value2'>value new 2</option>
+    <option value='value3'>value 3</option>
+  </select>
+  <button type="button" onclick="onClick()" id="button1">Delete selected</button>
+    
+<script>
+  let select = document.getElementById('selector');
+  let option = select.value;
+  select.onchange = function() {
+    option = select.value;
+  }
+  
+  function onClick() {
+    select.removeChild(select.querySelector('[value="'+ option + '"]'));
+    option = select.value;
+  }
+</script>
+</body>
+
+
+//task_5
+<body>
+  <button type="button" onclick="onClick()" onmouseover ="onMouseOver()" onmouseout ="onMouseOut()" id="myBtn">Button1</button>
+
+
+<script>
+  document.getElementById("myBtn").onclick = function () {
+    p = document.createElement('p');
+    p.innerHTML = 'I was pressed!'
+    document.body.lastChild.after(p);
+  }
+  document.getElementById("myBtn").onmouseover = function () {
+    p = document.createElement('p');
+    p.innerHTML = 'Mouse on me!'
+    document.body.lastChild.after(p)
+  }
+  document.getElementById("myBtn").onmouseout = function () {
+    p = document.createElement('p');
+    p.innerHTML = 'Mouse is not on me!'
+    document.body.lastChild.after(p)
+  }
+
+</script>
+</body>
+
+
+//task_6
+<body>
+Width: <span id='id1'></span>, Height: <span id='id2'></span>
+
+<script>
+let width = document.getElementById('id1');
+let height = document.getElementById('id2');
+
+height.innerHTML = window.innerHeight;
+width.innerHTML = window.innerWidth;
+
+window.onresize = function () {
+  height.innerHTML = window.innerHeight;
+  width.innerHTML = window.innerWidth;
+}
+</script>
+</body>
+
+
+//task_7
+<body>
+  <select name="country" id="country">
+    <option value="ger">Germany</option>
+    <option value="usa">USA</option>
+    <option value="ukr">Ukraine</option>
+  </select>
+                      
+  <select name="cities" id="cities"></select>
+  <p></p>
+
+
+  <script>
+    const gerCities = ['Hann', 'Berlin'];
+    const usaCities = ['Ogaio', 'New York', 'Boston'];
+    const ukrCities = ['Dnipro', 'Kyiv', 'Lviv', 'Kharkiv'];
+    let selectedCities = [];
+
+    let country = document.getElementById('country');
+    let optionCountry = country.value;
+
+    //function for building 2nd list
+    function buildSecondList(currentCountry, cities) {
+      switch (currentCountry) {
+        case 'ger': 
+          selectedCities = gerCities;
+          break;
+        case 'usa': 
+          selectedCities = usaCities;
+          break;
+        case 'ukr': 
+          selectedCities = ukrCities;
+          break;
+      }
+
+      document.getElementById('cities').innerHTML = '';
+      for (let i = 0; i < selectedCities.length; i++) {
+        let addCity='';
+        addCity = document.createElement('option');
+        addCity.value = selectedCities[i];
+        addCity.innerHTML = selectedCities[i];
+        document.getElementById('cities').appendChild(addCity);
+      }
+      return cities.value;
+    }    
+           
+    //First build of second list
+    let cities = document.getElementById('cities');
+    let optionCities = buildSecondList(optionCountry, cities);    
+
+    //function for show choses
+    function replaceP (currentCountry, currentCities) {
+      p = document.createElement('p');
+      let replacedCountry = document.querySelector('[value="'+ optionCountry + '"]')
+      p.innerHTML = replacedCountry.innerHTML + ', ' + currentCities;
+      document.getElementsByTagName('p')[0].replaceWith(p);
+    }
+    replaceP(optionCountry, optionCities);
+
+    //events on change of lists
+    country.onchange = function() {
+      optionCountry = country.value;
+      optionCities = buildSecondList(optionCountry, cities);
+      replaceP(optionCountry, optionCities);
+    }
+
+    cities.onchange = function() {
+      optionCities = cities.value;
+      replaceP(optionCountry, optionCities);
+    }
+  </script>
+</body>

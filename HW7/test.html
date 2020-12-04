@@ -1,0 +1,71 @@
+<body>
+  <select name="country" id="country">
+    <option value="ger">Germany</option>
+    <option value="usa">USA</option>
+    <option value="ukr">Ukraine</option>
+  </select>
+                      
+  <select name="cities" id="cities"></select>
+  <p></p>
+
+
+  <script>
+    const gerCities = ['Hann', 'Berlin'];
+    const usaCities = ['Ogaio', 'New York', 'Boston'];
+    const ukrCities = ['Dnipro', 'Kyiv', 'Lviv', 'Kharkiv'];
+    let selectedCities = [];
+
+    let country = document.getElementById('country');
+    let optionCountry = country.value;
+
+    //function for building 2nd list
+    function buildSecondList(currentCountry, cities) {
+      switch (currentCountry) {
+        case 'ger': 
+          selectedCities = gerCities;
+          break;
+        case 'usa': 
+          selectedCities = usaCities;
+          break;
+        case 'ukr': 
+          selectedCities = ukrCities;
+          break;
+      }
+
+      document.getElementById('cities').innerHTML = '';
+      for (let i = 0; i < selectedCities.length; i++) {
+        let addCity='';
+        addCity = document.createElement('option');
+        addCity.value = selectedCities[i];
+        addCity.innerHTML = selectedCities[i];
+        document.getElementById('cities').appendChild(addCity);
+      }
+      return cities.value;
+    }    
+           
+    //First build of second list
+    let cities = document.getElementById('cities');
+    let optionCities = buildSecondList(optionCountry, cities);    
+
+    //function for show choses
+    function replaceP (currentCountry, currentCities) {
+      p = document.createElement('p');
+      let replacedCountry = document.querySelector('[value="'+ optionCountry + '"]')
+      p.innerHTML = replacedCountry.innerHTML + ', ' + currentCities;
+      document.getElementsByTagName('p')[0].replaceWith(p);
+    }
+    replaceP(optionCountry, optionCities);
+
+    //events on change of lists
+    country.onchange = function() {
+      optionCountry = country.value;
+      optionCities = buildSecondList(optionCountry, cities);
+      replaceP(optionCountry, optionCities);
+    }
+
+    cities.onchange = function() {
+      optionCities = cities.value;
+      replaceP(optionCountry, optionCities);
+    }
+  </script>
+</body>
