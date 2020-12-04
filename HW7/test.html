@@ -50,7 +50,7 @@
     //function for show choses
     function replaceP (currentCountry, currentCities) {
       p = document.createElement('p');
-      let replacedCountry = document.querySelector('[value="'+ optionCountry + '"]')
+      let replacedCountry = document.querySelector('[value="'+ currentCountry + '"]');
       p.innerHTML = replacedCountry.innerHTML + ', ' + currentCities;
       document.getElementsByTagName('p')[0].replaceWith(p);
     }
