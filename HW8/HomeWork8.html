@@ -1,0 +1,143 @@
+//task_1
+<script>
+function upperCase(text) {
+    let caseSymbol=/[A-Z]/;
+    if (caseSymbol.test(text[0]))
+        console.log('String starts with uppercase character');
+      else
+        console.log('String\'s not starts with uppercase character');
+  }
+  upperCase('regexp');
+  upperCase('Regexp');
+</script>
+
+//task_2
+<script>
+  function checkEmail(email) {
+    if (!/@/.test(email)) return false;
+    if (!/\./.test(email)) return false;
+    if (email.search(/@/) + 1 >= email.search(/\./)) return false;
+    if (email.search(/@/) == 0) return false;
+    if (email.search(/\./) + 1 == email.length) return false;
+
+    return true;
+  }
+  console.log(checkEmail('Qmail2@gmail.com'));//true
+</script>
+
+//task_3
+<body>
+  <h2 class="head">header1</h2>
+  <h2 class="head">header2 <span class="inner">inner elem1</span></h2>
+  <h2>header3</h2>
+  <h2 class="head">header4<span>inner elem2</span></h2>
+  <h2>header5</h2>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+    $('.head').css("background-color", "green");    
+    $('.head>.inner').css("font-size", "35px");
+</script>
+
+
+//task_4
+<body>
+  <input type="checkbox" value="checkbox1" onchange="checkingCheckboxes()">option 1<br>
+  <input type="checkbox" value="checkbox2" onchange="checkingCheckboxes()">option 2<br>
+  <input type="checkbox" value="checkbox3" onchange="checkingCheckboxes()">option 3<br>
+  <input type="checkbox" value="checkbox4" onchange="checkingCheckboxes()">option 4<br>
+  <input type="checkbox" value="checkbox5" onchange="checkingCheckboxes()">option 5<br> 
+  <input type="checkbox" value="checkbox6" onchange="checkingCheckboxes()">option 6
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+  function checkingCheckboxes() {
+    let sum = 0;
+    $('input').each( function () {
+      sum += $(this).prop('checked');
+    });
+    if (sum == 3) $('input').attr("disabled", true);
+  }
+</script>
+
+
+//task_5
+<script>
+  function viceVersaReplacing (text) {
+    return newText = text.replace(text, text.split(/ /)[1] + ', ' + text.split(/ /)[0]);
+  }
+  console.log(viceVersaReplacing('Java Script'));
+  //Вхідний рядок    "Java Script"
+  //Вихід    “Script, Java”
+</script>
+
+//task_6
+<script>
+  function checkEmail(email) {
+    let result = true;
+    if (!/@/.test(email)) result = false;
+    if (!/\./.test(email)) result = false;
+    if (email.search(/@/) + 1 >= email.search(/\./)) result = false;
+    if (email.search(/@/) == 0) result = false;
+    if (email.search(/\./) + 1 == email.length) result = false;
+    if ((email.search(/-/) == 0) || (email.search(/_/) == 0)) result = false;
+    if ((email.match(/-/g)||[]).length>1) result = false;
+    const specials = /[^A-Za-z0-9\_\-\@\.]/;
+    if (specials.test(email)) result = false;
+  
+    if (result) console.log('Email is correct!');
+      else console.log('Email is not correct!');
+  }
+  checkEmail('Qmail2@gmail.com');//Email is correct!
+  checkEmail('my_mail@gmail.com');//Email is correct!
+  checkEmail('#my_mail@gmail.com');//Email is not correct!
+  checkEmail('a--ail@gmail.com');//Email is not correct!
+  checkEmail('_ail@gmail.com');//Email is not correct!
+</script>
+
+//task_7
+<script>
+  function checklLogin(email) {
+    let result = true;
+    if (((email||[]).length < 2) || ((email||[]).length > 10)) result = false;
+    const specials = /[^A-Za-z0-9\.]/;
+    if (specials.test(email)) result = false;
+    if (/[0-9]/.test(email[0])) result = false;
+    for (let i = 1; i <= 9; i++) {
+      if (email[i] == '.') 
+        if ((/[^0-9]/.test(email[i-1])) || (/[^0-9]/.test(email[i+1])))
+          result = false;
+    }
+    for (let i = 0; i < (email.match(/\./g)||[]).length; i++) {
+
+    }
+
+    let numbers = '';
+    let number = '';
+    for (let i = 0; i < email.length; i++) {
+      if (email[i].match(/[0-9\.]/g)) 
+        number += email[i];
+        else
+      if (number != '') {
+        numbers += ', ' + number;
+        number = '';        
+      }
+    }
+    if (number != '') {
+        numbers += ', ' + number;
+      }
+      
+    if (result) console.log(true);
+      else console.log(false);
+    if (numbers.length > 0) console.log(numbers.slice(2));
+    
+  }
+  checklLogin('ee1.1ret3');
+  //true
+  //1.1, 3
+  checklLogin('ee1*1ret3');
+  //false
+  //1, 1, 3
+</script>
