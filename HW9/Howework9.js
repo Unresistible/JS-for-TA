@@ -34,39 +34,39 @@ function mul(...rest) {
 console.log(mul(1, "str", 2, 3, true)); // 6
 console.log(mul(null, "str", false, true)); // 0
 
+
 //task_4. 
 let server = {
-   data: 0,
-   convertToString: function (callback) {
-      callback(() => {
-         return this.data + "";
-      });
-   }
+  data: 0,
+  convertToString: function (callback) {
+    callback(() => {
+      return this.data + "";
+    });
+  }
 };
 let client = {
-   server: server,
-   result: "",
-   calc: function (data) {
-      this.server.data = data;
-      this.server.convertToString(this.notification());
-   },
-   notification: function () {
-      return ((callback) => {
-         this.result = callback();
-      });
-   }
+  server: server,
+  result: "",
+  calc: function (data) {
+    this.server.data = data;
+    this.server.convertToString(this.notification());
+  },
+  notification: function () {
+    return ((callback) => {
+      this.result = callback();
+    });
+  }
 };
 client.calc(123);
 console.log(client.result); // "123"
 console.log(typeof client.result); // "string"
-//Змініть код використовуючи стрілочні функції, щоб в коді не використовувалися методи bind().
 
 
 //task_5
 function mapBuilder(keysArray, valuesArrays) {
   let map = new Map();
-  keys.forEach(element => {
-    map.set(element,values[keys.indexOf(element)]);
+  keys.forEach((element,index) => {
+    map.set(element,values[index]);
   });
   return map;
 }
