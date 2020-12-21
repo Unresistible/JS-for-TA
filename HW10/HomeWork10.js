@@ -50,6 +50,7 @@ showNumbers();
 //Результат: з різним рендомним інтервалом (наприклад від 0 до 3 сек) в консоль послідовно  виводяться числа 0,1,2,3,4,5,6,7,8,9 
 
 //task_4
+//scenario 1:
 const delay = async (i, time) => {
   setTimeout(() => console.log(i), time);
 }
@@ -62,4 +63,15 @@ function showNumbers() {
   }
 }
 showNumbers();
-//Задачу номер потрібно 3 реалізувати без застосування промісів. Переписати функцію showNumbers, використовуючи конструкцію async/await.
+
+//scenario 2:
+const delay = (i, time) => new Promise(resolve => setTimeout(() => resolve(i), time));
+async function showNumbers() {
+  //let time = 0;
+  for (let i = 0; i<10; i++) {
+    let time = Math.random()*3000;
+    const result = await delay(i,time);
+    console.log(result);
+  }
+}
+showNumbers();
