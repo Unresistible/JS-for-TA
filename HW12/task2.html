@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <button onclick="downloadBooks()" id = "button1">Download books</button>
+  <ul id='list'> </ul>
+
+  <script>
+    //need run server.js
+    function downloadBooks() {
+    const ajaxRequest = new XMLHttpRequest();
+    
+    ajaxRequest.open('GET', 'books.json', true);
+    ajaxRequest.onreadystatechange = function() { 		 // for asynchronous  requests
+            if (ajaxRequest.readyState != 4) return;	 // for asynchronous  requests
+            {
+                  let button = document.getElementById('button1');
+                  button.parentNode.removeChild(button);
+
+                  let response = JSON.parse(ajaxRequest.responseText);
+                  
+                  response.forEach(element => {
+                  let addLi = document.createElement('li');
+                  addLi.innerHTML = element.author;
+                  document.getElementById('list').appendChild(addLi);
+                });
+                }
+            }
+        ajaxRequest.send("books.json");
+    }
+
+  </script>
+</body>
+</html>
